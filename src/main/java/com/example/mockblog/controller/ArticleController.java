@@ -1,7 +1,6 @@
 package com.example.mockblog.controller;
 
 import com.example.mockblog.pojo.Article;
-import com.example.mockblog.pojo.Tag;
 import com.example.mockblog.service.ArticleService;
 import com.example.mockblog.vo.Result;
 import com.example.mockblog.vo.params.PageParams;
