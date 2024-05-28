@@ -1,6 +1,7 @@
 package com.example.mockblog.controller;
 
 import com.example.mockblog.pojo.Article;
+import com.example.mockblog.pojo.Tag;
 import com.example.mockblog.service.ArticleService;
 import com.example.mockblog.vo.Result;
 import com.example.mockblog.vo.params.PageParams;
@@ -19,6 +20,16 @@ public class ArticleController {
     @PostMapping
     public Result<List<Article>> listArticle(@RequestBody PageParams params){
         return articleService.listArticlePage(params);
+    }
+
+    @RequestMapping(value = "hot", method = {RequestMethod.GET, RequestMethod.POST})
+    public Result<List<Article>> hotArticle(){
+        return articleService.hotArticle();
+    }
+
+    @RequestMapping(value = "new", method = {RequestMethod.GET, RequestMethod.POST})
+    public Result<List<Article>> newArticle(){
+        return articleService.newArticle();
     }
 
 }

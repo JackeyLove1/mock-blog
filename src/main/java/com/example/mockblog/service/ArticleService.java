@@ -14,4 +14,8 @@ import java.util.List;
 */
 public interface ArticleService extends IService<Article> {
     Result<List<Article>> listArticlePage(PageParams pageParams);
+
+    Result<List<Article>> hotArticle();
+
+    Result<List<Article>> newArticle();
 }

@@ -32,6 +32,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article>
         articleMapper.selectPage(page, queryWrapper);
         return Result.success(page.getRecords());
     }
+
+    @Override
+    public Result<List<Article>> hotArticle(){
+        final Integer limit = 5;
+        return Result.success(articleMapper.hotArticle(limit));
+    }
+
+    @Override
+    public Result<List<Article>> newArticle(){
+        final Integer limit = 5;
+        return Result.success(articleMapper.newArticle(limit));
+    }
 }
 
 
