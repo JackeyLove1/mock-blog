@@ -17,5 +17,4 @@ public enum ErrorCode {
 
     private final Integer code;
     private final String msg;
-
 }
