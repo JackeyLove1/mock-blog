@@ -6,12 +6,15 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mockblog.pojo.Article;
 import com.example.mockblog.service.ArticleService;
 import com.example.mockblog.mapper.ArticleMapper;
+import com.example.mockblog.service.ThreadService;
 import com.example.mockblog.vo.Result;
 import com.example.mockblog.vo.params.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author 15727
@@ -24,6 +27,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article>
 
     @Autowired
     private ArticleMapper articleMapper;
+
+    @Autowired
+    private ThreadService threadService;
 
     @Override
     public Result<List<Article>> listArticlePage(PageParam pageParams) {
@@ -43,6 +49,16 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article>
     public Result<List<Article>> newArticle(){
         final Integer limit = 5;
         return Result.success(articleMapper.newArticle(limit));
+    }
+
+    @Override
+    public Result<Article> findArticleById(Long articleId){
+        Article article = articleMapper.selectById(articleId);
+        if(article == null){
+            return Result.success(null);
+        }
+        threadService.updateViewCount(articleId, article.getViewCounts());
+        return Result.success(article);
     }
 }
 

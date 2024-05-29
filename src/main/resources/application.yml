@@ -64,3 +64,9 @@ jwt:
 
 login:
   salt: Jackyfan@openai.com?!?1
+
+qiniu:
+  accessKey: key
+  secretKey: secret
+  bucket: bucket
+  url: url

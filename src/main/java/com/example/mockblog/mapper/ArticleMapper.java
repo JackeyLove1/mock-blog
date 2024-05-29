@@ -18,6 +18,8 @@ public interface ArticleMapper extends BaseMapper<Article> {
     public List<Article> hotArticle(Integer limit);
 
     public List<Article> newArticle(Integer limit);
+
+    public void updateViewCountsById(Long articleId, Integer viewCounts);
 }
 
 

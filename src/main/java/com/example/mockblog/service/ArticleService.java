@@ -18,4 +18,6 @@ public interface ArticleService extends IService<Article> {
     Result<List<Article>> hotArticle();
 
     Result<List<Article>> newArticle();
+
+    Result<Article> findArticleById(Long articleId);
 }

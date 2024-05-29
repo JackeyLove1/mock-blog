@@ -31,4 +31,8 @@
     <select id="newArticle" parameterType="int" resultType="com.example.mockblog.pojo.Article">
         select * from ms_article order by create_date desc limit #{limit}
     </select>
+
+    <update id="updateViewCountsById">
+        update ms_article set view_counts = #{viewCounts} where id = #{articleId}
+    </update>
 </mapper>
