@@ -13,7 +13,8 @@ public enum ErrorCode {
     USER_ACCOUNT_EXISTED(10001, "账号已存在"),
     USER_ACCOUNT_NOT_EXIST(10002, "账号不存在"),
     USER_PWD_NOT_CORRECT(10003, "密码不正确"),
-    USER_NOT_LOGIN(10004, "用户未登录");
+    USER_NOT_LOGIN(10004, "用户未登录"),
+    ACCOUNT_PWD_NOT_EXIST(10005, "账号密码不存在");
 
     private final Integer code;
     private final String msg;

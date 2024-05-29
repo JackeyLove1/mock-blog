@@ -60,3 +60,7 @@ logging:
 jwt:
   secret: jacky/fa+noPeAaijaKkyfanopenaijackyfanopeinopenaijackyfanopeai
   expiration: 5184000000 # token expiration time in milliseconds (1 day)
+  prefix: Bearer
+
+login:
+  salt: Jackyfan@openai.com?!?1

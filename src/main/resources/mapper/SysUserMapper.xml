@@ -27,4 +27,18 @@
         nickname,password,salt,
         status
     </sql>
+
+    <select id="findByAccountAndPassword" resultType="com.example.mockblog.pojo.SysUser">
+        select *
+        from ms_sys_user
+        where account = #{account}
+          and password = #{password};
+    </select>
+
+    <select id="findByAccount" resultType="com.example.mockblog.pojo.SysUser">
+        select *
+        from ms_sys_user
+        where account = #{account}
+        limit 1;
+    </select>
 </mapper>

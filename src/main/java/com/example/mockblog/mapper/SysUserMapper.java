@@ -10,7 +10,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.example.mockblog.pojo.SysUser
 */
 public interface SysUserMapper extends BaseMapper<SysUser> {
+    SysUser findByAccountAndPassword(String account, String password);
 
+    SysUser findByAccount(String account);
 }
 
 

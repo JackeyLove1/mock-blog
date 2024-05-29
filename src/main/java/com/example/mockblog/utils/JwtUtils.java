@@ -1,11 +1,15 @@
 package com.example.mockblog.utils;
 
+import com.alibaba.fastjson2.JSON;
 import com.example.mockblog.config.JwtConfig;
+import com.example.mockblog.pojo.SysUser;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -63,4 +67,22 @@ public class JwtUtils {
     }
 
 
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
+    public SysUser checkAndParseUserToken(String token) {
+        if (StringUtils.isBlank(token)) {
+            return null;
+        }
+        Map<String, Object> claims = checkToken(token);
+        if (claims == null) {
+            return null;
+        }
+        String userJson = redisTemplate.opsForValue().get(jwtConfig.getPrefix() + ":" + token);
+        if (StringUtils.isBlank(userJson)) {
+            return null;
+        }
+        SysUser user = JSON.parseObject(userJson, SysUser.class);
+        return user;
+    }
 }
