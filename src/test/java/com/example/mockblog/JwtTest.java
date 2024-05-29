@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Map;
+import java.util.Random;
 
 @SpringBootTest
 public class JwtTest {
@@ -16,6 +17,8 @@ public class JwtTest {
     private JwtConfig jwtConfig;
     @Autowired
     private JwtUtils jwtUtils;
+
+    private final Random random = new Random();
 
     @Test
     public void testSecretValid() {
@@ -29,7 +32,7 @@ public class JwtTest {
 
     @Test
     public void testJwtBasic(){
-        Long userId = 1L;
+        Long userId = random.nextLong();
         String token = jwtUtils.generateToken(userId);
         Assertions.assertNotNull(token);
         Map<String, Object> claims = jwtUtils.checkToken(token);

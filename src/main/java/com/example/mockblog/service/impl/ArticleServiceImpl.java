@@ -7,7 +7,7 @@ import com.example.mockblog.pojo.Article;
 import com.example.mockblog.service.ArticleService;
 import com.example.mockblog.mapper.ArticleMapper;
 import com.example.mockblog.vo.Result;
-import com.example.mockblog.vo.params.PageParams;
+import com.example.mockblog.vo.params.PageParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article>
     private ArticleMapper articleMapper;
 
     @Override
-    public Result<List<Article>> listArticlePage(PageParams pageParams) {
+    public Result<List<Article>> listArticlePage(PageParam pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
         QueryWrapper<Article> queryWrapper = new QueryWrapper<>();
         articleMapper.selectPage(page, queryWrapper);

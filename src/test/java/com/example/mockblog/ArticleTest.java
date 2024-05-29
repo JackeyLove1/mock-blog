@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mockblog.mapper.ArticleMapper;
 import com.example.mockblog.pojo.Article;
 import com.example.mockblog.service.ArticleService;
-import com.example.mockblog.vo.params.PageParams;
+import com.example.mockblog.vo.params.PageParam;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,7 @@ public class ArticleTest {
 
     @Test
     void testArticlePageService() {
-        PageParams params = new PageParams();
+        PageParam params = new PageParam();
         var result = articleService.listArticlePage(params);
         List<Article> list = result.getData();
         list.stream().forEach(System.out::println);
