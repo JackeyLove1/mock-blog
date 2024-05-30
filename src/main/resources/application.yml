@@ -28,6 +28,10 @@ spring:
       host: 127.0.0.1
       port: 6379
       password:
+  cache:
+    caffeine:
+      spec: initialCapacity=100,maximumSize=500,expireAfterAccess=10m
+
 
 server:
   port: 8888
