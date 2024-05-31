@@ -43,8 +43,10 @@ public class LogAspect {
         log.info("request method: {}", className + "." + methodName + "()");
 
         Object[] args = joinPoint.getArgs();
-        String params = JSON.toJSONString(args[0]);
-        log.info("params: {}", params);
+        if (args != null && args.length != 0){
+            String params = JSON.toJSONString(args[0]);
+            log.info("params: {}", params);
+        }
 
         HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
         log.info("ip: {}", request.getRemoteAddr());

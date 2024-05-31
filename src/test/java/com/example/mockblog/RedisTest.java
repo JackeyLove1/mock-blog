@@ -1,6 +1,6 @@
 package com.example.mockblog;
 
-import com.example.mockblog.service.RedisService;
+import com.example.mockblog.service.impl.RedisService;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -26,15 +26,19 @@ public class RedisTest {
         Assertions.assertEquals(value, getValue);
     }
 
+
     @Autowired
     private RedisService redisService;
+
     @Test
-    public void testRedisService(){
-        String key = faker.name().name();
-        String value = faker.internet().password();
-        redisService.set(key, value);
-        Assertions.assertEquals(value, (String)redisService.get(key));
-        redisService.delete(key);
-        Assertions.assertNull(redisService.get(key));
+    void testRedisService(){
+        final String key = faker.name().username();
+        final String value = faker.name().fullName();
+
+        redisService.setCacheObject(key, value);
+        final String getValue = redisService.getCacheObject(key);
+        Assertions.assertEquals(value, getValue);
+        redisService.deleteObject(key);
+        Assertions.assertNull(redisService.getCacheObject(key));
     }
 }

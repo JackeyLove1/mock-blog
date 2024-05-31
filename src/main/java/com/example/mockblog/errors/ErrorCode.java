@@ -15,7 +15,8 @@ public enum ErrorCode {
     USER_PWD_NOT_CORRECT(10003, "密码不正确"),
     USER_NOT_LOGIN(10004, "用户未登录"),
     ACCOUNT_PWD_NOT_EXIST(10005, "账号密码不存在"),
-    UPLOAD_ERROR(10006, "上传失败");
+    UPLOAD_ERROR(10006, "上传失败"),
+    CAPTCHA_ERROR(10007, "验证码错误");
 
     private final Integer code;
     private final String msg;

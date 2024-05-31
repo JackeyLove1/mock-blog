@@ -1,7 +1,6 @@
 package com.example.mockblog.vo.params;
 
 import jakarta.validation.constraints.NotBlank;
-
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginParam {
+public class RegisterParam {
     @NotBlank(message = "账号不能为空")
     @Pattern(
             regexp = "^(1[3-9]\\d{9}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$",
@@ -24,7 +23,12 @@ public class LoginParam {
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$", message = "密码中必须包含大小写字母和特殊字符(@#$%^&+=)")
     private String password;
 
-    @NotBlank(message = "Nickname cannot be blank")
-    @Size(max = 30, message = "Nickname must be less than 30 characters")
-    private String nickname;
+    @NotBlank(message = "请再次输入密码")
+    private String rePassword;
+
+    @NotBlank(message = "验证码Key不能为空")
+    private String code;
+
+    @NotBlank(message = "验证码不能为空")
+    private String image;
 }
