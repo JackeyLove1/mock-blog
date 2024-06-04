@@ -39,3 +39,9 @@ build/
 
 ### Config ###
 application.*
+
+### Fronted ###
+*.jpg
+*.png
+*.jpeg
+*.gif
