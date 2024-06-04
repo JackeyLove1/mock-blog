@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="header"> Header </h1>
+<p>
+    123<br/>
+    456<br/>
+</p>
+<p>
+    123
+    456
+</p>
+
+<em>123</em>
+<strong>123</strong>
+<del>123</del>
+<ins>123</ins>
+
+<div>123</div>
+<span>123</span>
+
+<a href="https://www.baidu.com" target="_blank"> baidu</a>
+
+<div>
+    <a href="#header"> the header </a>
+</div>
+
+<!--- annotation --->
+<div>
+    jiang&nbsp;&nbsp;jiu
+    1 &lt; 2 &gt; 3
+    1 &amp; 2
+    1 &quot; 2
+</div>
+
+<table align="center" border="1" cellpadding="20" cellspacing="0">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th> Gender</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Jacky</td>
+        <td>100</td>
+        <td> Human</td>
+    </tr>
+    </tbody>
+</table>
+
+<div></div>
+
+<dl>
+    <dt> like us</dt>
+    <dd> weibo</dd>
+    <dd> weixin</dd>
+</dl>
+
+<form action="demo.php" method="post" name="name1">
+    <label for="username">UserName</label>: <input type="text" id="username"> <br/>
+    Password: <input type="password"><br/>
+    Gender: <input type="radio" name="gender">Male
+    <label for="gender">Man</label>
+    <input id="gender" name="gender" type="radio">
+    <input type="radio" name="gender">Female<br/>
+    hobby: <input type="checkbox"> Eat <input type="checkbox"> Drink <br/>
+    <input type="submit" value="submit"><br/>
+    <input type="reset" value="reset"><br/>
+    <input type="button" value="SMS"><br/>
+</form>
+
+<form>
+    <label for="select">
+        Province
+    </label>
+    <select id="select">
+        <option selected="selected">Beijing</option>
+        <option>Shanghai</option>
+    </select>
+</form>
+
+<form>
+    Area:
+    <textarea></textarea>
+</form>
+
+<form>
+    <h4>Title</h4>
+    <table width="500" cellspacing="0" cellpadding="1" border="1">
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                <input type="radio" name="gender" id="gender-man"> <label for="gender-man"> Man</label>
+                <input type="radio" name="gender" id="gender-female"> <label for="gender-female"> Female</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Birthday:
+            </td>
+            <td>
+                <select id="select-year">
+                    <option> -- year --</option>
+                    <option> 2001 </option>
+                    <option> 2002 </option>
+                </select>
+
+                <select id="select-month">
+                    <option> -- month --</option>
+                    <option> 1 </option>
+                    <option> 2 </option>
+                </select>
+
+                <select id="select-day">
+                    <option> -- day --</option>
+                    <option> 1 </option>
+                    <option> 2 </option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Area:
+            </td>
+            <td>
+                <input type="text" value="Beijing">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="checkbox" checked="checked" value="check"> Checked
+            </td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
